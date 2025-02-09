@@ -1,0 +1,378 @@
+/* ------------------------------------------------------
+   Basic Reset & Variables
+------------------------------------------------------ */
+/* Optionally comment out margin and padding resets if they interfere with Bootstrap */
+/*
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+}
+*/
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: hsl(211, 100%, 40%);
+  --dark-color: #222;
+  --light-color: #f9f9f9;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ------------------------------------------------------
+   Body & Typography
+------------------------------------------------------ */
+body {
+  /* Uncomment the following if using a fixed navbar */
+  /* padding-top: 70px; */
+  font-family: var(--font-family);
+  color: var(--dark-color);
+  background: var(--light-color);
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------
+   Hero Section - Desktop Layout (Text Left, Animation Right)
+------------------------------------------------------ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 100vh;
+  background: 
+    linear-gradient(rgb(42, 180, 255), rgb(181, 181, 181)),
+    url("https://via.placeholder.com/1920x1080") no-repeat center/cover;
+  position: relative;
+}
+
+/* Left-hand hero text */
+.hero-content {
+  flex: 1;
+  max-width: 55%;
+  color: #fff;
+}
+
+/* Right-hand animation area */
+.hero-animation {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------------------------------------------
+   Call-to-Action Buttons
+------------------------------------------------------ */
+.cta-btn {
+  background: var(--primary-color);
+  padding: 0.75em 1.5em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  margin: 0.5em 0;
+}
+
+.cta-btn:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Button Group */
+.button-group {
+  margin-top: 1.5em;
+}
+
+.button-group a {
+  margin-right: 1em;
+}
+
+/* Calendly Button Styling */
+.calendly-btn {
+  background: #28a745; /* green background for Calendly */
+}
+
+.calendly-btn:hover {
+  background: #218838;
+}
+
+/* ------------------------------------------------------
+   Wave Container
+------------------------------------------------------ */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  min-height: 80px;
+  max-height: 150px;
+  margin-bottom: -5px;
+  shape-rendering: auto;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* ------------------------------------------------------
+   Info Sections
+------------------------------------------------------ */
+.info {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.info p,
+.info ol {
+  font-size: 1rem;
+  color: #292929;
+}
+
+.info ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  text-align: left;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+/* ------------------------------------------------------
+   Footer
+------------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #111111;
+  color: #fff;
+}
+
+/* ------------------------------------------------------
+   Scroll Reveal Animation
+------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------
+   Responsive (Mobile) Adjustments
+------------------------------------------------------ */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .hero-content,
+  .hero-animation {
+    flex: none;
+    width: 100%;
+  }
+  
+  .hero-animation {
+    margin-top: 2rem;
+  }
+}
+
+/* ------------------------------------------------------
+   Cube Animation Styles
+------------------------------------------------------ */
+/* Override .block when inside hero-animation so it stays within its container */
+.hero-animation .block {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+.shape {
+  width: 100px;
+  height: 100px;
+}
+
+.cube {
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.cube.outer {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: spin 4s infinite cubic-bezier(0.67, 0.03, 0.31, 0.98);
+}
+
+.cube.outer > .cube {
+  width: 100px;
+  height: 100px;
+  transform: translateX(50px) translateY(50px);
+  animation: spin-inner 4s infinite cubic-bezier(0.67, 0.03, 0.31, 0.98);
+}
+
+.side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* backface-visibility: hidden; */
+  font-size: 30px;
+  line-height: 100px;
+  text-align: center;
+  opacity: 0.9;
+  transition: all 0.2s linear;
+  border: 1px solid hsl(198, 69%, 28%);
+  background: rgba(194, 194, 194, 0.5);
+  box-shadow: inset 0 0 100% 0 rgba(1, 84, 119, 0.5);
+  box-sizing: border-box;
+}
+
+.outer > .cube .side {
+  background: rgba(255, 255, 255, 0.763);
+}
+
+.side.left {
+  transform: translateX(-50px) rotateY(-90deg);
+}
+
+.cube.outer > .side.left {
+  transform: translateX(-100px) rotateY(-90deg);
+}
+
+.side.right {
+  transform: translateX(50px) rotateY(90deg);
+}
+
+.cube.outer > .side.right {
+  transform: translateX(100px) rotateY(90deg);
+}
+
+.side.top {
+  transform: translateY(-50px) rotateX(90deg);
+}
+
+.cube.outer > .side.top {
+  transform: translateY(-100px) rotateX(90deg);
+}
+
+.side.bottom {
+  transform: translateY(50px) rotateX(-90deg);
+}
+
+.cube.outer > .side.bottom {
+  transform: translateY(100px) rotateX(-90deg);
+}
+
+.side.front {
+  transform: translateZ(50px);
+}
+
+.cube.outer > .side.front {
+  transform: translateZ(100px);
+}
+
+.side.back {
+  transform: translateZ(-50px) rotateX(180deg);
+}
+
+.cube.outer > .side.back {
+  transform: translateZ(-100px) rotateX(180deg);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  33.333% {
+    transform: rotateX(-35deg) rotateY(-45deg);
+  }
+  66.666% {
+    transform: rotateX(-35deg) rotateY(45deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes spin-inner {
+  0% {
+    transform: translateX(50px) translateY(50px) rotateY(0deg) rotateX(90deg);
+  }
+  33.333% {
+    transform: translateX(50px) translateY(50px) rotateY(90deg) rotateX(90deg);
+  }
+  66.666% {
+    transform: translateX(50px) translateY(50px) rotateY(-90deg) rotateX(90deg);
+  }
+  100% {
+    transform: translateX(50px) translateY(50px) rotateY(0deg) rotateX(90deg);
+  }
+}
+
+/* ------------------------------------------------------
+   Desktop Adjustments
+------------------------------------------------------ */
+@media (min-width: 890px) {
+  .hero-content {
+    padding-left: 8rem; /* Increase left padding for desktop layouts */
+  }
+}
