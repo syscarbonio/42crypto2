@@ -229,12 +229,17 @@ body {
   .hero-animation {
     margin-top: 2rem;
   }
+  
+  /* Hide cube animation on mobile to avoid interference with waves */
+  .hero-animation {
+    display: none;
+  }
 }
 
 /* ------------------------------------------------------
    Cube Animation Styles
 ------------------------------------------------------ */
-/* Override .block when inside hero-animation so it stays within its container */
+/* (Cube animation will appear on larger screens only) */
 .hero-animation .block {
   position: relative;
   width: 200px;
