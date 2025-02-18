@@ -21,8 +21,9 @@
 
 
 /* bigger than tab screen */
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 992px) {
   .hero-animation .block {
+    padding-left: 100px;
     display: block;
     transform: scale(1.25);
   }

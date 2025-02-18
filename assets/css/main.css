@@ -2653,7 +2653,7 @@ ol {
 }
 
 .feature .feature-box {
-  min-height: 250px;
+  height: 400px;
   margin-top: 30px;
   border-radius: 20px;
   background-color: white;
